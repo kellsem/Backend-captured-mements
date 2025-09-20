@@ -69,6 +69,3 @@ fastify.delete('/delete-upload',{preHandler: upload.single("image")}, async (req
 
 
 //ROTA-> CONTROLLER-> SERVICE-> DB
-
-
-// aula parada em -8min periodo de testes.

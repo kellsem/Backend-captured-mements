@@ -18,7 +18,12 @@ class UpdateMomentsController {
   const { user } = request;
 
   if(!title || !story || !visitedLocation || !imageUrl || !visitedDate) {
-    return reply.status(400).send({error: true, message: "All field are required!"})
+    return reply.status(400).send({error: true, message: "All fields are required!"})
+  }
+  // Validação de data
+  const parsedVisiteDate = new Date(visitedDate);
+  if (isNaN(parsedVisiteDate.getTime())) {
+    return reply.status(400).send({error: true, message: "Invalid visitedDate format. Must be ISO string."})
   }
   if(!user){
     return reply.status(400).send({error: true, message: "User does not exists!"})

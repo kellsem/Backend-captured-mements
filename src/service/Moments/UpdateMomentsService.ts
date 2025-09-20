@@ -13,15 +13,15 @@ type UpdateMomentsProps = RegisteredMomentsProps & {id:string }
 
 class UpdateMomentsService {
   async execute({
-    id,
-    title,
+     id,
+     title,
      story,
      visitedLocation,
      user,
      imageUrl,
      visitedDate } : UpdateMomentsProps){
 
-      const parsedVisiteDate = new Date(parseInt(visitedDate))
+      const parsedVisiteDate = new Date(visitedDate)
     
  const editMoment = await prismaClient.registeredMoments.findFirst({
  where: {
@@ -32,7 +32,7 @@ class UpdateMomentsService {
  if (!editMoment){
  throw new Error("Register moment not found")
  }
- const placeholderImageUrl = `http//localhost:8000/uploads/imagem_reposição.avif`
+ const placeholderImageUrl = `http://localhost:8000/uploads/imagem_reposição.avif`;
  const updateRegisteredMoment = await prismaClient.registeredMoments.update({
   where: {
     id: id

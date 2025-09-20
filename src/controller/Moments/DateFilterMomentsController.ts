@@ -4,7 +4,7 @@ import { DateFilterMomentsService } from "../../service/Moments/DateFilterMoment
 
 class DateFilterMomentsController {
   async handle(request: FastifyRequest, reply: FastifyReply ){   
-     const { startDate, endDate } = request.query as {startDate: string, endDate: string,}   
+  const { startDate, endDate } = request.body as {startDate: string, endDate: string,}   
      const { user } =  request 
  
   if(!user) {
