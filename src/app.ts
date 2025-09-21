@@ -4,7 +4,6 @@ import fastifyMultipart from "@fastify/multipart";
 import cors from '@fastify/cors'
 import fastifyStatic from "@fastify/static";
 import path from 'path'
-
 const app = fastify({ logger: true });
 
 app.register(fastifyMultipart)
